@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, require, onMounted } from 'vue'
 import ProductService from '@/services/ProductService.js'
 
 const props = defineProps({
@@ -23,7 +23,10 @@ onMounted(() => {
 <template>
   <div v-if="product">
     <h1>{{ product.name }}</h1>
-    <img class="product-image" :src="`@/${product.imageUrl}`" />
+    <img
+      class="product-image"
+      :src="require(`../../src/${product.imageUrl}`)"
+    />
     <div class="row">
       <div class="column">
         <p class="label">Product Code:&nbsp;</p>
