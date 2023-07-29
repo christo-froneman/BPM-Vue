@@ -23,7 +23,7 @@ onMounted(() => {
 <template>
   <div v-if="product">
     <h1>{{ product.name }}</h1>
-    <img class="product-image" :src="`../../src/${product.imageUrl}`" />
+    <img class="product-image" :src="`${product.imageUrl}`" />
     <div class="row">
       <div class="column">
         <p class="label">Product Code:&nbsp;</p>
