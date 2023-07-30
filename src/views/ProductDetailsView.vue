@@ -1,5 +1,10 @@
 <script setup>
-import { ref, require, onMounted } from 'vue'
+import garednCart from '../assets/images/garden_cart.png'
+import hammer from '../assets/images/hammer.png'
+import leafRake from '../assets/images/leaf_rake.png'
+import saw from '../assets/images/saw.png'
+import xboxController from '../assets/images/xbox-controller.png'
+import { ref, onMounted } from 'vue'
 import ProductService from '@/services/ProductService.js'
 
 const props = defineProps({
@@ -23,10 +28,7 @@ onMounted(() => {
 <template>
   <div v-if="product">
     <h1>{{ product.name }}</h1>
-    <img
-      class="product-image"
-      :src="require(`../../src/${product.imageUrl}`)"
-    />
+    <img class="product-image" :src="`../../src/${product.imageUrl}`" />
     <div class="row">
       <div class="column">
         <p class="label">Product Code:&nbsp;</p>
@@ -48,7 +50,7 @@ onMounted(() => {
         <p class="label">Price:&nbsp;</p>
       </div>
       <div class="column">
-        <p class="left">${{ product.price }}</p>
+        <p class="left">{{ product.price }}</p>
       </div>
     </div>
     <div class="row">
