@@ -57,7 +57,7 @@ onMounted(() => {
         <p class="label">Price:&nbsp;</p>
       </div>
       <div class="column">
-        <p class="left">{{ product.price }}</p>
+        <p class="left">${{ product.price }}</p>
       </div>
     </div>
     <div class="row">
