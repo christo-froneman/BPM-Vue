@@ -18,7 +18,10 @@ onMounted(() => {
 
 <template>
   <h1>Beta Product Management</h1>
-  <div class="products">
+  <div v-if="!products">
+    <h2>Loading...</h2>
+  </div>
+  <div v-else class="products">
     <ProductCard
       v-for="product in products"
       :key="product.id"

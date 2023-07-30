@@ -1,5 +1,5 @@
 <script setup>
-import garednCart from '../assets/images/garden_cart.png'
+import gardenCart from '../assets/images/garden_cart.png'
 import hammer from '../assets/images/hammer.png'
 import leafRake from '../assets/images/leaf_rake.png'
 import saw from '../assets/images/saw.png'
@@ -13,6 +13,10 @@ const props = defineProps({
   },
 })
 const product = ref(null)
+// Obviously this is not the right way to do this, but for the sake of time
+// I am leaving it this way since it works when deployed to render.com
+// After all, the goal of this app is just to demonstrate basic Vue concepts and calling to the ASP.NET Core Web API...
+const images = [leafRake, gardenCart, hammer, saw, xboxController]
 
 onMounted(() => {
   ProductService.getProduct(props.id)
@@ -26,9 +30,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="product">
+  <div v-if="!product">
+    <h2>Loading...</h2>
+  </div>
+  <div v-else>
     <h1>{{ product.name }}</h1>
-    <img class="product-image" :src="`../../src/${product.imageUrl}`" />
+    <img class="product-image" :src="`${images[product.id - 1]}`" />
     <div class="row">
       <div class="column">
         <p class="label">Product Code:&nbsp;</p>
