@@ -31,10 +31,12 @@ onMounted(() => {
 
 <template>
   <div v-if="!product">
-    <h2>Loading...</h2>
+    <span class="loader"></span>
+    <br />
   </div>
   <div v-else>
     <h1>{{ product.name }}</h1>
+    <br />
     <img class="product-image" :src="`${images[product.id - 1]}`" />
     <div class="row">
       <div class="column">

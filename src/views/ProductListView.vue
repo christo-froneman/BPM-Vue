@@ -19,7 +19,8 @@ onMounted(() => {
 <template>
   <h1>Beta Product Management</h1>
   <div v-if="!products">
-    <h2>Loading...</h2>
+    <span class="loader"></span>
+    <br />
   </div>
   <div v-else class="products">
     <ProductCard
